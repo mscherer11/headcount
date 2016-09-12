@@ -1,5 +1,5 @@
 require_relative 'test_helper'
-require './lib/data_scrub'
+require_relative '../lib/data_scrub'
 
 class TestDataScrub < Minitest::Test
   def test_if_name_is_clean

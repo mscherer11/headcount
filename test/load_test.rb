@@ -1,5 +1,5 @@
 require_relative 'test_helper'
-require './lib/load'
+require_relative '../lib/load'
 
 class LoadModuleTest < Minitest::Test
 
