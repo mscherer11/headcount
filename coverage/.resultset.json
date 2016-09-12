@@ -1,27 +1,4 @@
 {
-  "Unit Tests": {
-    "coverage": {
-      "/Users/robertsmith/Turing/1module/headcount/lib/data_scrub.rb": [
-        1,
-        1,
-        null,
-        1,
-        4,
-        null,
-        null,
-        1,
-        8,
-        null,
-        null,
-        1,
-        2,
-        null,
-        null,
-        null
-      ]
-    },
-    "timestamp": 1473721940
-  },
   "RSpec": {
     "coverage": {
       "/Users/robertsmith/Turing/1module/headcount/lib/data_scrub.rb": [
@@ -75,6 +52,6 @@
         1
       ]
     },
-    "timestamp": 1473721949
+    "timestamp": 1473722111
   }
 }
