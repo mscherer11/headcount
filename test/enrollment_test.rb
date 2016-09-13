@@ -10,8 +10,9 @@ class TestEnrollment < Minitest::Test
   end
 
   def test_participate_in_year
+    # data = {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}
     enrollment = Enrollment.new
-    assert_equal 0.3915, enrollment.kindergarten_participation_in_year(2010)
+    assert_equal 0.3915 , enrollment.kindergarten_participation_in_year(2010)
   end
 
 end
