@@ -24,7 +24,7 @@ class EnrollmentRepository
   end
 
   def kindergarten_participation(data)
-    { data[:timeframe] => data[:data] }
+    { data[:timeframe].to_i => data[:data].to_f }
   end
 
   def enrollment_hash(data)

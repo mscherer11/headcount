@@ -31,6 +31,14 @@ class DistrictRepository
     return found
   end
 
-  
+  def find_all_matching(search_data)
+    search_data = DataScrub.clean_name(search_data)
+    found_districts = []
+    @districts.each do |district|
+      found_districts << district if district.name.scan(search_data).length > 0
+    end
+    return found_districts
+  end
+
 
 end

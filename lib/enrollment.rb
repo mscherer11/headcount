@@ -11,7 +11,7 @@ class Enrollment
   end
 
   def kindergarten_participation_in_year(year)
-    kindergarten_participation.fetch(year)
+    kindergarten_participation[year]
   end
 
   def add_participation(data)

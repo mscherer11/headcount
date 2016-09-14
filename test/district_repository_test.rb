@@ -19,9 +19,10 @@ class TestDistrictRepository < Minitest::Test
     assert_equal "COLORADO", district.name
   end
 
-  # def test_can_it_find_all_matches
-  #   assert_equal 2, find_all_matching("C")
-  # end
+  def test_can_it_find_all_matches
+    assert_equal 2, @repo.find_all_matching("C").count
+    assert_equal 1, @repo.find_all_matching("Co").count
+  end
 
   # def test_does_it_return_nil_when_matches_not_found
   #

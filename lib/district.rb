@@ -7,7 +7,7 @@ class District
   attr_reader :name
 
   def initialize(row)
-    @name = DataScrub.clean_name(row[:location])
+    @name = row[:name] || DataScrub.clean_name(row[:location])
   end
 
 end
