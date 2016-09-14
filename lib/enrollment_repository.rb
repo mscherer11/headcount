@@ -4,8 +4,8 @@ require_relative "../lib/data_scrub"
 require_relative "enrollment"
 
 class EnrollmentRepository
-
   attr_reader :enrollments
+
 
   def initialize
     @enrollments = []
@@ -27,6 +27,10 @@ class EnrollmentRepository
     end
   end
 
+  def create_enrollment(row)
+    @enrollments << Enrollment.new(enrollment_hash(row))
+  end
+
   def kindergarten_participation(data)
     { data[:timeframe].to_i => data[:data].to_f }
   end
@@ -38,9 +42,6 @@ class EnrollmentRepository
     }
   end
 
-  def create_enrollment(row)
-    @enrollments << Enrollment.new(enrollment_hash(row))
-  end
 
   def find_by_name(search_name)
     search_name = DataScrub.clean_name(search_name)
@@ -49,7 +50,5 @@ class EnrollmentRepository
     end
     return found
   end
-
-
 
 end
