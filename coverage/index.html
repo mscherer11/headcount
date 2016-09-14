@@ -14,27 +14,27 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-13T09:26:21-06:00">2016-09-13T09:26:21-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-13T20:38:15-06:00">2016-09-13T20:38:15-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">100.0%</span></span>
+    (<span class="covered_percent"><span class="green">97.83%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.4
+         14.77
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>1</b> files in total.
-    <b>9</b> relevant lines. 
-    <span class="green"><b>9</b> lines covered</span> and
-    <span class="red"><b>0</b> lines missed </span>
+    <b>4</b> files in total.
+    <b>46</b> relevant lines. 
+    <span class="green"><b>45</b> lines covered</span> and
+    <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -51,13 +51,43 @@
     <tbody>
       
       <tr>
-        <td class="strong"><a href="#7c4be3ed0118c6ad15ba0eb44456c0ac7a0e9382" class="src_link" title="lib/enrollment.rb">lib/enrollment.rb</a></td>
+        <td class="strong"><a href="#89b5f0c850734b291ca5d2a64486d10da5f83b52" class="src_link" title="lib/data_scrub.rb">lib/data_scrub.rb</a></td>
+        <td class="yellow strong">87.5 %</td>
+        <td>16</td>
+        <td>8</td>
+        <td>7</td>
+        <td>1</td>
+        <td>32.9</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#b0a701555a6cf6e244c1e593ca5d08831a115dc4" class="src_link" title="lib/district.rb">lib/district.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>17</td>
-        <td>9</td>
-        <td>9</td>
+        <td>13</td>
+        <td>6</td>
+        <td>6</td>
         <td>0</td>
-        <td>1.4</td>
+        <td>1.8</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#bb0bd2fa7df9c86120a74c25ec0e3056fd686734" class="src_link" title="lib/district_repository.rb">lib/district_repository.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>44</td>
+        <td>26</td>
+        <td>26</td>
+        <td>0</td>
+        <td>15.2</td>
+      </tr>
+      
+      <tr>
+        <td class="strong"><a href="#a4f5a7ac1865041009652cdb60225746abc6ca53" class="src_link" title="lib/load.rb">lib/load.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>10</td>
+        <td>6</td>
+        <td>6</td>
+        <td>0</td>
+        <td>1.7</td>
       </tr>
       
     </tbody>
@@ -76,14 +106,14 @@
     
       <div class="source_files">
       
-        <div class="source_table" id="7c4be3ed0118c6ad15ba0eb44456c0ac7a0e9382">
+        <div class="source_table" id="89b5f0c850734b291ca5d2a64486d10da5f83b52">
   <div class="header">
-    <h3>lib/enrollment.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h3>lib/data_scrub.rb</h3>
+    <h4><span class="yellow">87.5 %</span> covered</h4>
     <div>
-      <b>9</b> relevant lines. 
-      <span class="green"><b>9</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <b>8</b> relevant lines. 
+      <span class="green"><b>7</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -93,31 +123,31 @@
         <li class="covered" data-hits="1" data-linenumber="1">
           <span class="hits">1</span>
           
-          <code class="ruby">class Enrollment</code>
+          <code class="ruby">module DataScrub</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="2">
           <span class="hits">1</span>
           
-          <code class="ruby">  attr_reader :name, :kindergarten_participation</code>
+          <code class="ruby">  extend self</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
-          <code class="ruby">  def initialize(stuff)</code>
+          <code class="ruby">  def regex_name</code>
         </li>
       
-        <li class="covered" data-hits="3" data-linenumber="4">
-          <span class="hits">3</span>
+        <li class="covered" data-hits="74" data-linenumber="5">
+          <span class="hits">74</span>
           
-          <code class="ruby">    @name = stuff[:name]</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="5">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    @kindergarten_participation = stuff[:kindergarten_participation]</code>
+          <code class="ruby">    /\w+/</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
@@ -135,13 +165,13 @@
         <li class="covered" data-hits="1" data-linenumber="8">
           <span class="hits">1</span>
           
-          <code class="ruby">  def kindergarten_participation_by_year</code>
+          <code class="ruby">  def clean_name(information)</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
+        <li class="covered" data-hits="184" data-linenumber="9">
+          <span class="hits">184</span>
           
-          <code class="ruby">    kindergarten_participation</code>
+          <code class="ruby">    information.to_s.gsub(regex_name) {|word| word.upcase}</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
@@ -159,34 +189,484 @@
         <li class="covered" data-hits="1" data-linenumber="12">
           <span class="hits">1</span>
           
-          <code class="ruby">  def kindergarten_participation_in_year(year)</code>
+          <code class="ruby">  def clean_data(data)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="13">
+        <li class="missed" data-hits="0" data-linenumber="13">
           
           
-          <code class="ruby">    # data = {2010 =&gt; 0.3915, 2011 =&gt; 0.35356, 2012 =&gt; 0.2677}</code>
+          <code class="ruby">    data.to_f</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    kindergarten_participation.fetch(year)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
+        <li class="never" data-hits="" data-linenumber="14">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="16">
+        <li class="never" data-hits="" data-linenumber="15">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="b0a701555a6cf6e244c1e593ca5d08831a115dc4">
+  <div class="header">
+    <h3>lib/district.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &#39;../lib/data_scrub&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="2">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class District</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  include DataScrub</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="6">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_reader :name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize(row)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="10">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    @name = DataScrub.clean_name(row[:location])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="11">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="bb0bd2fa7df9c86120a74c25ec0e3056fd686734">
+  <div class="header">
+    <h3>lib/district_repository.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>26</b> relevant lines. 
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &quot;pry&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/load&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/data_scrub&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;district&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class DistrictRepository</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  include Load</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="9">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_reader :districts</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="12">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    @districts = []</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def load_data(file)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="16">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    data = Load.file_load(file[:enrollment][:kindergarten])</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="17">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    data.each do |row|</code>
+        </li>
+      
+        <li class="covered" data-hits="66" data-linenumber="18">
+          <span class="hits">66</span>
+          
+          <code class="ruby">      create_district(row) unless find_by_name(row[:location])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="22">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_district(row)</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="23">
+          <span class="hits">6</span>
+          
+          <code class="ruby">    @districts &lt;&lt; District.new(row)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="24">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="25">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="26">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_by_name(search_name)</code>
+        </li>
+      
+        <li class="covered" data-hits="67" data-linenumber="27">
+          <span class="hits">67</span>
+          
+          <code class="ruby">    search_name = DataScrub.clean_name(search_name)</code>
+        </li>
+      
+        <li class="covered" data-hits="67" data-linenumber="28">
+          <span class="hits">67</span>
+          
+          <code class="ruby">    found = @districts.find do |district|</code>
+        </li>
+      
+        <li class="covered" data-hits="94" data-linenumber="29">
+          <span class="hits">94</span>
+          
+          <code class="ruby">      district if district.name == search_name</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="67" data-linenumber="31">
+          <span class="hits">67</span>
+          
+          <code class="ruby">    return found</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="33">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="34">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def find_all_matching(search_data)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    search_data = DataScrub.clean_name(search_data)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="36">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    found_districts = []</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="37">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    @districts.each do |district|</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="38">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      found_districts &lt;&lt; district if district.name.scan(search_data).length &gt; 0</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="40">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return found_districts</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="41">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="a4f5a7ac1865041009652cdb60225746abc6ca53">
+  <div class="header">
+    <h3>lib/load.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>6</b> relevant lines. 
+      <span class="green"><b>6</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require &#39;csv&#39;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">module Load</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  extend self</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="5">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def file_load(file_name)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="6">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    file = CSV.open file_name.to_s, headers: true, header_converters: :symbol</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    return file</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">end</code>
