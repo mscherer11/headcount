@@ -15,11 +15,15 @@ class EnrollmentRepository
     data = Load.file_load(file[:enrollment][:kindergarten])
     data.each do |row|
       enrollment = find_by_name(row[:location])
-      if enrollment.nil?
-        create_enrollment(row)
-      else
-        enrollment.add_participation(kindergarten_participation(row))
-      end
+      is_enrollment_nil?(row, enrollment)
+    end
+  end
+
+  def is_enrollment_nil?(row, enrollment)
+    if enrollment.nil?
+      create_enrollment(row)
+    else
+      enrollment.add_participation(kindergarten_participation(row))
     end
   end
 
