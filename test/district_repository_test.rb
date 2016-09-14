@@ -1,5 +1,6 @@
 require_relative 'test_helper'
 require_relative '../lib/district_repository'
+require 'pry'
 
 class TestDistrictRepository < Minitest::Test
 
@@ -24,8 +25,17 @@ class TestDistrictRepository < Minitest::Test
     assert_equal 1, @repo.find_all_matching("Co").count
   end
 
-  # def test_does_it_return_nil_when_matches_not_found
-  #
-  # end
+  def test_can_it_create_an_instance_of_EnrollmentRepository
+    assert_instance_of EnrollmentRepository, @repo.enrollment_repo
+  end
+
+  def test_can_it_populate_EnrollmentRepository_with_data
+    refute_equal [], @repo.enrollment_repo.enrollments
+  end
+
+  def test_can_it_return_a_data_value
+    district = @repo.find_by_name("ACADEMY 20")
+    assert_equal 0.30201, district.enrollment.kindergarten_participation_in_year(2004)
+  end
 
 end

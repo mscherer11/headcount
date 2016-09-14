@@ -1,9 +1,9 @@
 module DataScrub
   extend self
 
-  def regex_name
-    /\w+/
-  end
+  # def regex_name
+  #   /\w+/
+  # end
 
   def clean_name(information)
     information.upcase
