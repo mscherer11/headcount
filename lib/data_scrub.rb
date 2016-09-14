@@ -6,7 +6,7 @@ module DataScrub
   end
 
   def clean_name(information)
-    information.to_s.gsub(regex_name) {|word| word.upcase!}
+    information.to_s.gsub(regex_name) {|word| word.upcase}
   end
 
   def clean_data(data)

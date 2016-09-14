@@ -19,7 +19,16 @@ class TestEnrollment < Minitest::Test
   end
 
   def test_participate_in_year
-    assert_equal 0.391 , @e.kindergarten_participation_in_year(2010)
+    assert_equal 0.3915, @e.kindergarten_participation_in_year(2010)
+  end
+
+  def test_it_can_update_kindergarten_participation
+    enrollment = @e
+
+    assert_equal 3, enrollment.kindergarten_participation.size
+    enrollment.add_participation({2013 => 0.48774})
+    assert_equal 4, enrollment.kindergarten_participation.size
+    assert_equal 0.48774, enrollment.kindergarten_participation[2013]
   end
 
 end

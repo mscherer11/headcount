@@ -1,0 +1,51 @@
+require "pry"
+require_relative "../lib/load"
+require_relative "../lib/data_scrub"
+require_relative "enrollment"
+
+class EnrollmentRepository
+
+  attr_reader :enrollments
+
+  def initialize
+    @enrollments = []
+  end
+
+  def load_data(file)
+    data = Load.file_load(file[:enrollment][:kindergarten])
+    data.each do |row|
+      enrollment = find_by_name(row[:location])
+      if enrollment.nil?
+        create_enrollment(row)
+      else
+        enrollment.add_participation(kindergarten_participation(row))
+      end
+    end
+  end
+
+  def kindergarten_participation(data)
+    { data[:timeframe] => data[:data] }
+  end
+
+  def enrollment_hash(data)
+    {
+      name: DataScrub.clean_name(data[:location]),
+      kindergarten_participation: kindergarten_participation(data)
+    }
+  end
+
+  def create_enrollment(row)
+    @enrollments << Enrollment.new(enrollment_hash(row))
+  end
+
+  def find_by_name(search_name)
+    search_name = DataScrub.clean_name(search_name)
+    found = @enrollments.find do |enrollment|
+      enrollment if enrollment.name == search_name
+    end
+    return found
+  end
+
+
+
+end
