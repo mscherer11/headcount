@@ -13,6 +13,7 @@ class DistrictRepository
   end
 
   def load_data(file)
+    binding.pry
     data = Load.file_load(file[:enrollment][:kindergarten])
     data.each do |row|
       create_district(row) unless find_by_name(row[:location])

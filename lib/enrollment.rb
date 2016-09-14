@@ -1,9 +1,9 @@
 class Enrollment
   attr_reader :name, :kindergarten_participation
 
-  def initialize(stuff)
-    @name = stuff[:name] #add test it scrubs name
-    @kindergarten_participation = stuff[:kindergarten_participation]
+  def initialize(data)
+    @name = data[:name] #add test it scrubs name
+    @kindergarten_participation = data[:kindergarten_participation]
   end
 
   def kindergarten_participation_by_year
