@@ -9,7 +9,7 @@ class TestEnrollment < Minitest::Test
   def test_enrollment_can_be_insantiated_with_name_and_enrollment
     expected = {2010 => 0.3915, 2011 => 0.35356, 2012 => 0.2677}
     assert_equal "ACADEMY 20", @e.name
-    assert_equal expected, @e.kindergarten_participation
+    assert_equal expected, @e.data[:kindergarten_participation]
   end
 
   def test_participate_by_year
@@ -25,10 +25,10 @@ class TestEnrollment < Minitest::Test
   def test_it_can_update_kindergarten_participation
     enrollment = @e
 
-    assert_equal 3, enrollment.kindergarten_participation.size
+    assert_equal 3, enrollment.data[:kindergarten_participation].size
     enrollment.add_participation({2013 => 0.48774})
-    assert_equal 4, enrollment.kindergarten_participation.size
-    assert_equal 0.48774, enrollment.kindergarten_participation[2013]
+    assert_equal 4, enrollment.data[:kindergarten_participation].size
+    assert_equal 0.48774, enrollment.kindergarten_participation_in_year(2013)
   end
 
 end

@@ -6,7 +6,12 @@ class TestDistrictRepository < Minitest::Test
 
   def setup
     @repo = DistrictRepository.new
-    @file = @repo.load_data({:enrollment=>{:kindergarten=>"./test/fixtures/Kindergartners in full-day program.csv"}})
+    @file = @repo.load_data({
+      :enrollment => {
+      :kindergarten => "./test/fixtures/Kindergartners in full-day program.csv",
+      :high_school_graduation => "./test/fixtures/High school graduation rates.csv"
+      }
+      })
   end
 
   def test_can_repo_collect_data
