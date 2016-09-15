@@ -8,8 +8,8 @@ class TestDistrictRepository < Minitest::Test
     @repo = DistrictRepository.new
     @file = @repo.load_data({
       :enrollment => {
-      :kindergarten => "./data/Kindergartners in full-day program.csv",
-      :high_school_graduation => "./data/High school graduation rates.csv"
+      :kindergarten => "./test/fixtures/Kindergartners in full-day program.csv",
+      :high_school_graduation => "./test/fixtures/High school graduation rates.csv"
       }
       })
   end

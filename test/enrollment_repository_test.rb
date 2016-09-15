@@ -7,14 +7,13 @@ class TestEnrollmentReposiotry < Minitest::Test
     @repo = EnrollmentRepository.new
     @file = @repo.load_data({
       :enrollment => {
-      :kindergarten => "./data/Kindergartners in full-day program.csv",
-      :high_school_graduation => "./data/High school graduation rates.csv"
+      :kindergarten => "./test/fixtures/Kindergartners in full-day program.csv",
+      :high_school_graduation => "./test/fixtures/High school graduation rates.csv"
       }
       })
   end
 
   def test_can_repo_collect_data
-    binding.pry
     assert_equal 2, @repo.enrollments.length
   end
 
