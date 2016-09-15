@@ -11,8 +11,12 @@ class EnrollmentRepository
     @enrollments = []
   end
 
+  def get_file_hash(file)
+    Load.file_load(file[:enrollment][:kindergarten])
+  end
+
   def load_data(file)
-    data = Load.file_load(file[:enrollment][:kindergarten])
+    data = get_file_hash(file)
     data.each do |row|
       enrollment = find_by_name(row[:location])
       is_enrollment_nil?(row, enrollment)
@@ -46,7 +50,7 @@ class EnrollmentRepository
   def find_by_name(search_name)
     search_name = DataScrub.clean_name(search_name)
     found = @enrollments.find do |enrollment|
-      enrollment if enrollment.name == search_name
+      enrollment if enrollment.data[:name] == search_name
     end
     return found
   end
