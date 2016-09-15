@@ -26,7 +26,7 @@ class TestEnrollment < Minitest::Test
     enrollment = @e
 
     assert_equal 3, enrollment.data[:kindergarten_participation].size
-    enrollment.add_participation({2013 => 0.48774})
+    enrollment.add_participation({2013 => 0.48774}, :kindergarten_participation)
     assert_equal 4, enrollment.data[:kindergarten_participation].size
     assert_equal 0.48774, enrollment.kindergarten_participation_in_year(2013)
   end

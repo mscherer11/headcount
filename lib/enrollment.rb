@@ -2,16 +2,7 @@ class Enrollment
   attr_reader :data
 
   def initialize(data)
-    # @name = data[:name] #add test it scrubs name
-    # @kindergarten_participation = data[:kindergarten_participation]
-    @data = hashify(data)
-  end
-
-  def hashify(data)
-    {
-      name: data[:name],
-      kindergarten_participation: data[:kindergarten_participation]
-    }
+    @data = data
   end
 
   def kindergarten_participation_by_year
@@ -22,8 +13,12 @@ class Enrollment
     data[:kindergarten_participation][year]
   end
 
-  def add_participation(row)
-    data[:kindergarten_participation].merge!(row)
+  def add_participation(row, key)
+    if data[key] == nil
+      data.merge!({key=>row})
+    else
+      data[key].merge!(row)
+    end
   end
 
   def name

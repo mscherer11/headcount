@@ -12,37 +12,52 @@ class EnrollmentRepository
   end
 
   def get_file_hash(file)
-    Load.file_load(file[:enrollment][:kindergarten])
+      Load.file_load(file)
   end
 
   def load_data(file)
-    data = get_file_hash(file)
+    file[:enrollment].each do |key,value|
+      data = get_file_hash(value)
+      create_data(data, kindergarten_name(key))
+    end
+  end
+
+  def kindergarten_name(key)
+    if key == :kindergarten
+      key = :kindergarten_participation
+    else
+      key
+    end
+    return key
+  end
+
+  def create_data(data, key)
     data.each do |row|
       enrollment = find_by_name(row[:location])
-      is_enrollment_nil?(row, enrollment)
+      is_enrollment_nil?(row, enrollment, key)
     end
   end
 
-  def is_enrollment_nil?(row, enrollment)
+  def is_enrollment_nil?(row, enrollment, key)
     if enrollment.nil?
-      create_enrollment(row)
+      create_enrollment(key, row)
     else
-      enrollment.add_participation(kindergarten_participation(row))
+      enrollment.add_participation(create_numeric_data(row), key)
     end
   end
 
-  def create_enrollment(row)
-    @enrollments << Enrollment.new(enrollment_hash(row))
+  def create_enrollment(key, row)
+    @enrollments << Enrollment.new(enrollment_hash(key, row))
   end
 
-  def kindergarten_participation(data)
+  def create_numeric_data(data)
     { data[:timeframe].to_i => data[:data].to_f }
   end
 
-  def enrollment_hash(data)
+  def enrollment_hash(key, data)
     {
       name: DataScrub.clean_name(data[:location]),
-      kindergarten_participation: kindergarten_participation(data)
+      key => create_numeric_data(data)
     }
   end
 
