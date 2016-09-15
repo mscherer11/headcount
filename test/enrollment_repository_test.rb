@@ -36,9 +36,26 @@ class TestEnrollmentReposiotry < Minitest::Test
     assert_equal 5, high_school_graduation.length
   end
 
-  # def test_it_can_change_the_kindergarten_name
-  #   enrollment = @repo.find_by_name("COLORADO")
-  #   assert_equal :kindergarten_participation, enrollment.data.keys[1]
-  # end
+  def test_it_can_change_the_kindergarten_name
+    enrollment = @repo.find_by_name("COLORADO")
+    assert_equal :kindergarten_participation, enrollment.data.keys[1]
+  end
 
+  def test_can_it_return_data_for_multiple_years
+    enrollment = @repo.find_by_name("ACADEMY 20")
+    expected = { 2010 => 0.895,
+     2011 => 0.895,
+     2012 => 0.889,
+     2013 => 0.913,
+     2014 => 0.898,
+     }
+
+     assert_equal expected, enrollment.graduation_rate_by_year
+  end
+
+  def test_can_it_return_a_value_from_a_year
+    enrollment = @repo.find_by_name("ACADEMY 20")
+
+    assert_equal 0.895, enrollment.graduation_rate_in_year(2010)
+  end
 end
