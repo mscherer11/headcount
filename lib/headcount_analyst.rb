@@ -49,7 +49,40 @@ class HeadcountAnalyst
   def kindergarten_participation_against_high_school_graduation(district)
     kinder = kindergarten_participation_rate_variation(district, against: 'COLORADO')
     high_school = high_school_graduation_rate_variation(district, against: 'COLORADO')
-    shorten_float(kinder / high_school)
+    high_school == 0 ? 0 : shorten_float(kinder / high_school)
+  end
+
+  def kindergarten_participation_correlates_with_high_school_graduation(districts_list)
+    districts_list = district_parse(districts_list)
+    if districts_list[0] == "STATEWIDE"
+      districts_eval = @district_repo.districts
+    else
+      districts_eval = districts_list.map do |district|
+        @district_repo.find_by_name(district)
+      end
+      evaluate_districts(districts_eval)
+    end
+  end
+
+  def evaluate_districts(districts_eval)
+    kinder_relates = districts_eval.map do |district|
+      kindergarten_participation_against_high_school_graduation(district.name).between?(0.6,1.5)
+    end
+    above_70_percent?(kinder_relates)
+  end
+
+  def district_parse(district)
+    district.values.flatten
+    # district_send = [district[:for]] || district[:across]
+  end
+
+  def above_70_percent?(data)
+    percentage = data.count(true).to_f/data.length.to_f
+    if percentage > 0.7
+      true
+    else
+      false
+    end
   end
 
 end
