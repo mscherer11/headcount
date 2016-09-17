@@ -23,6 +23,7 @@ class HeadcountAnalystTest < Minitest::Test
   def test_can_it_find_an_average_with_state
     assert_equal 0.766, @h.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'COLORADO')
   end
+
   def test_can_it_find_an_average_with_district
     assert_equal 0.447, @h.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
   end
@@ -44,7 +45,7 @@ class HeadcountAnalystTest < Minitest::Test
     assert_equal false, @h.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
   end
 
-  def test_does_kindergarten_predict_high_school_graduation_for_state
+  def test_does_kindergarten_predict_high_school_graduation_across_districts
   districts = ["ACADEMY 20", 'PARK (ESTES PARK) R-3', 'YUMA SCHOOL DISTRICT 1']
   assert @h.kindergarten_participation_correlates_with_high_school_graduation(:across => districts)
   end

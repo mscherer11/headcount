@@ -60,8 +60,8 @@ class HeadcountAnalyst
       districts_eval = districts_list.map do |district|
         @district_repo.find_by_name(district)
       end
-      evaluate_districts(districts_eval)
     end
+    evaluate_districts(districts_eval)
   end
 
   def evaluate_districts(districts_eval)
@@ -73,7 +73,6 @@ class HeadcountAnalyst
 
   def district_parse(district)
     district.values.flatten
-    # district_send = [district[:for]] || district[:across]
   end
 
   def above_70_percent?(data)
