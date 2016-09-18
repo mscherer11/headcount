@@ -14,26 +14,26 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-18T15:00:55-06:00">2016-09-18T15:00:55-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2016-09-18T17:28:08-06:00">2016-09-18T17:28:08-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">99.77%</span></span>
+    (<span class="covered_percent"><span class="green">99.78%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         105197.85
+         100756.22
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
-    <b>18</b> files in total.
-    <b>431</b> relevant lines. 
-    <span class="green"><b>430</b> lines covered</span> and
+    <b>20</b> files in total.
+    <b>450</b> relevant lines. 
+    <span class="green"><b>449</b> lines covered</span> and
     <span class="red"><b>1</b> lines missed </span>
   </div>
   <table class="file_list">
@@ -101,6 +101,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#17ebe678cd4e88cbaceec1159593eae5335d1036" class="src_link" title="lib/errors.rb">lib/errors.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>21</td>
+        <td>12</td>
+        <td>12</td>
+        <td>0</td>
+        <td>1.2</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#787fd9d952bc170594fbfc48f3d1e3e9fccd7eb6" class="src_link" title="lib/headcount_analyst.rb">lib/headcount_analyst.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>87</td>
@@ -122,22 +132,22 @@
       
       <tr>
         <td class="strong"><a href="#d53649cbcb526f6e01f433ac3e3e4b6efe534238" class="src_link" title="lib/statewide_test.rb">lib/statewide_test.rb</a></td>
-        <td class="green strong">98.11 %</td>
-        <td>85</td>
-        <td>53</td>
-        <td>52</td>
-        <td>1</td>
-        <td>21044.8</td>
+        <td class="green strong">100.0 %</td>
+        <td>93</td>
+        <td>59</td>
+        <td>59</td>
+        <td>0</td>
+        <td>18904.8</td>
       </tr>
       
       <tr>
         <td class="strong"><a href="#3dbe83f4a55f0fadea4b9025b21257a51e6cd05d" class="src_link" title="lib/statewide_test_repository.rb">lib/statewide_test_repository.rb</a></td>
         <td class="green strong">100.0 %</td>
-        <td>73</td>
-        <td>35</td>
-        <td>35</td>
+        <td>74</td>
+        <td>36</td>
+        <td>36</td>
         <td>0</td>
-        <td>1082715.1</td>
+        <td>1052639.7</td>
       </tr>
       
       <tr>
@@ -191,6 +201,16 @@
       </tr>
       
       <tr>
+        <td class="strong"><a href="#29457dcf4d2c31b60e7b79bb756b2a6f2b247cd4" class="src_link" title="test/errors_test.rb">test/errors_test.rb</a></td>
+        <td class="green strong">100.0 %</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0.0</td>
+      </tr>
+      
+      <tr>
         <td class="strong"><a href="#04a9524c30d55e66677e06420981b0b62dfb9bea" class="src_link" title="test/headcount_analyst_test.rb">test/headcount_analyst_test.rb</a></td>
         <td class="green strong">100.0 %</td>
         <td>60</td>
@@ -222,11 +242,11 @@
       
       <tr>
         <td class="strong"><a href="#c9a4db9bc6a0d73f0304341c64d01a17f34c7b29" class="src_link" title="test/statewide_test_test.rb">test/statewide_test_test.rb</a></td>
-        <td class="green strong">100.0 %</td>
+        <td class="green strong">96.3 %</td>
         <td>61</td>
         <td>27</td>
-        <td>27</td>
-        <td>0</td>
+        <td>26</td>
+        <td>1</td>
         <td>1.3</td>
       </tr>
       
@@ -1620,6 +1640,150 @@
   </pre>
 </div>
       
+        <div class="source_table" id="17ebe678cd4e88cbaceec1159593eae5335d1036">
+  <div class="header">
+    <h3>lib/errors.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>12</b> relevant lines. 
+      <span class="green"><b>12</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class UnknownDataError &lt; StandardError</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    super</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def errors(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="7">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    raise UnknownDataError unless grade == :eighth_grade || grade == :third_grade</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="8">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def errors_by_grade(subject, grade, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="11">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    raise UnknownDataError unless data[grade].has_key?(year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="12">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    raise UnknownDataError unless data[grade][year].has_key?(subject)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="15">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def errors_by_race(subject, race, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="16">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    raise UnknownDataError unless data.has_key?(subject)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="17">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    raise UnknownDataError unless data[subject].has_key?(year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="18">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    raise UnknownDataError unless data[subject][year].has_key?(race)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="19">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
         <div class="source_table" id="787fd9d952bc170594fbfc48f3d1e3e9fccd7eb6">
   <div class="header">
     <h3>lib/headcount_analyst.rb</h3>
@@ -2241,11 +2405,11 @@
         <div class="source_table" id="d53649cbcb526f6e01f433ac3e3e4b6efe534238">
   <div class="header">
     <h3>lib/statewide_test.rb</h3>
-    <h4><span class="green">98.11 %</span> covered</h4>
+    <h4><span class="green">100.0 %</span> covered</h4>
     <div>
-      <b>53</b> relevant lines. 
-      <span class="green"><b>52</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>59</b> relevant lines. 
+      <span class="green"><b>59</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
     </div>
   </div>
   
@@ -2264,100 +2428,676 @@
           <code class="ruby">require_relative &#39;../lib/truncate&#39;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/errors.rb&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
           
           
           <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="4">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class StatewideTest</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="5">
           <span class="hits">1</span>
           
-          <code class="ruby">  include Truncate</code>
+          <code class="ruby">class StatewideTest &lt; UnknownDataError</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="6">
           <span class="hits">1</span>
           
+          <code class="ruby">  include Truncate</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
           <code class="ruby">  attr_reader :data</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="7">
+        <li class="never" data-hits="" data-linenumber="8">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="8">
+        <li class="covered" data-hits="1" data-linenumber="9">
           <span class="hits">1</span>
           
           <code class="ruby">  def initialize(data=nil)</code>
         </li>
       
-        <li class="covered" data-hits="2733" data-linenumber="9">
+        <li class="covered" data-hits="2733" data-linenumber="10">
           <span class="hits">2733</span>
           
           <code class="ruby">    @data = data</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="10">
+        <li class="never" data-hits="" data-linenumber="11">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
+        <li class="never" data-hits="" data-linenumber="12">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="12">
+        <li class="covered" data-hits="1" data-linenumber="13">
           <span class="hits">1</span>
           
           <code class="ruby">  def add_testing(row, key)</code>
         </li>
       
-        <li class="covered" data-hits="374421" data-linenumber="13">
+        <li class="covered" data-hits="374421" data-linenumber="14">
           <span class="hits">374421</span>
           
           <code class="ruby">    if data[key] == nil</code>
         </li>
       
-        <li class="covered" data-hits="10932" data-linenumber="14">
+        <li class="covered" data-hits="10932" data-linenumber="15">
           <span class="hits">10932</span>
           
           <code class="ruby">      data.merge!({key=&gt;row})</code>
         </li>
       
-        <li class="covered" data-hits="363489" data-linenumber="15">
+        <li class="covered" data-hits="363489" data-linenumber="16">
           <span class="hits">363489</span>
           
           <code class="ruby">    elsif data[key].has_key?(row.keys.first)</code>
         </li>
       
-        <li class="covered" data-hits="306096" data-linenumber="16">
+        <li class="covered" data-hits="306096" data-linenumber="17">
           <span class="hits">306096</span>
           
           <code class="ruby">      data[key][row.keys.first].merge!(row[row.keys.first])</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="17">
+        <li class="never" data-hits="" data-linenumber="18">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="57393" data-linenumber="18">
+        <li class="covered" data-hits="57393" data-linenumber="19">
           <span class="hits">57393</span>
           
           <code class="ruby">      data[key].merge!(row)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="20">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="21">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="22">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="23">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def proficient_by_grade(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="24">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    grade = convert_grade_to_sym(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="25">
+          <span class="hits">3</span>
+          
+          <code class="ruby">    errors(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="26">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    final = {}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="27">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    data[grade].each do |key,val|</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="28">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      conversion = trunc_grades(val)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="29">
+          <span class="hits">14</span>
+          
+          <code class="ruby">      final.merge({key=&gt;conversion})</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="30">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="31">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="33">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def convert_grade_to_sym(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="34">
+          <span class="hits">4</span>
+          
+          <code class="ruby">    return :third_grade if grade == 3</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="35">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    return :eighth_grade if grade == 8</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def trunc_grades(val)</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="39">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    present_data = Hash.new</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="40">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    trunc_values = val.map do |k, v|</code>
+        </li>
+      
+        <li class="covered" data-hits="42" data-linenumber="41">
+          <span class="hits">42</span>
+          
+          <code class="ruby">      val[k] = shorten_float(v)</code>
+        </li>
+      
+        <li class="covered" data-hits="42" data-linenumber="42">
+          <span class="hits">42</span>
+          
+          <code class="ruby">      present_data.merge!({k=&gt;val[k]})</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="43">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="14" data-linenumber="44">
+          <span class="hits">14</span>
+          
+          <code class="ruby">    trunc_values</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="46">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="47">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def proficient_by_race_or_ethnicity(race)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="48">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    subject_keys = data.keys[3..-1]</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="49">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    years = create_year_keys(subject_keys)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="50">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    final = {}</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="51">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    years.each do |year|</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="52">
+          <span class="hits">8</span>
+          
+          <code class="ruby">      final.merge!({year=&gt;create_inner_hash(subject_keys,year,race)})</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="53">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="54">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    final</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="55">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="56">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="57">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_inner_hash(subject_keys, year, race)</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="58">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    inner_values = {}</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="59">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    subject_keys.each do |subject|</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="60">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      lowest_value = {subject=&gt;get_lowest_hash_values(data[subject], year, race)}</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="61">
+          <span class="hits">24</span>
+          
+          <code class="ruby">      inner_values.merge!(lowest_value)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="8" data-linenumber="63">
+          <span class="hits">8</span>
+          
+          <code class="ruby">    inner_values</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="66">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def get_lowest_hash_values(data, year, race)</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="67">
+          <span class="hits">24</span>
+          
+          <code class="ruby">    shorten_float(data[year][race])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="70">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create_year_keys(subject_keys)</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="71">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    year_keys = subject_keys.map do |key|</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="72">
+          <span class="hits">6</span>
+          
+          <code class="ruby">      temp_keys = data[key].keys</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="74">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    year_keys = year_keys.sort.flatten.uniq</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="77">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def proficient_for_subject_by_grade_in_year(subject, grade, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="78">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    error_wrapper(subject, grade, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="79">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    value = proficient_by_grade(grade)[year][subject]</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="80">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    value == 0.0 ? value = &quot;N/A&quot;: value</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="81">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="83">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def proficient_for_subject_by_race_in_year(subject, race, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="84">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    errors_by_race(subject, race, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="85">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    proficient_by_race_or_ethnicity(race)[year][subject]</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="87">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="88">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def error_wrapper(subject, grade, year)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="89">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    grade = convert_grade_to_sym(grade)</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="90">
+          <span class="hits">1</span>
+          
+          <code class="ruby">    errors_by_grade(subject, grade, year)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="91">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="93">
+          
+          
+          <code class="ruby">end</code>
+        </li>
+      
+    </ol>
+  </pre>
+</div>
+      
+        <div class="source_table" id="3dbe83f4a55f0fadea4b9025b21257a51e6cd05d">
+  <div class="header">
+    <h3>lib/statewide_test_repository.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>36</b> relevant lines. 
+      <span class="green"><b>36</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+        <li class="covered" data-hits="1" data-linenumber="1">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/statewide_test&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="2">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/truncate&quot;</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="3">
+          <span class="hits">1</span>
+          
+          <code class="ruby">require_relative &quot;../lib/errors.rb&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="4">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="5">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="6">
+          <span class="hits">1</span>
+          
+          <code class="ruby">class StatewideTestRepository</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="7">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  include Truncate</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="8">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  attr_reader :statewide</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="9">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="10">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def initialize</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="11">
+          <span class="hits">24</span>
+          
+          <code class="ruby">    @statewide = Array.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="12">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="13">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="14">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def load_data(file)</code>
+        </li>
+      
+        <li class="covered" data-hits="24" data-linenumber="15">
+          <span class="hits">24</span>
+          
+          <code class="ruby">    file[:statewide_testing].each do |key,value|</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="16">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="120" data-linenumber="17">
+          <span class="hits">120</span>
+          
+          <code class="ruby">      data = get_file_data(value)</code>
+        </li>
+      
+        <li class="covered" data-hits="120" data-linenumber="18">
+          <span class="hits">120</span>
+          
+          <code class="ruby">      create_data(data, key)</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
@@ -2381,838 +3121,316 @@
         <li class="covered" data-hits="1" data-linenumber="22">
           <span class="hits">1</span>
           
-          <code class="ruby">  def proficient_by_grade(grade)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="23">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    grade = convert_grade_to_sym(grade)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="24">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    final = {}</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="25">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    data[grade].each do |key,val|</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="26">
-          <span class="hits">14</span>
-          
-          <code class="ruby">      conversion = trunc_grades(val)</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="27">
-          <span class="hits">14</span>
-          
-          <code class="ruby">      final.merge({key=&gt;conversion})</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="28">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="30">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="31">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def trunc_grades(val)</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="32">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    present_data = Hash.new</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="33">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    trunc_values = val.map do |k, v|</code>
-        </li>
-      
-        <li class="covered" data-hits="42" data-linenumber="34">
-          <span class="hits">42</span>
-          
-          <code class="ruby">      val[k] = shorten_float(v)</code>
-        </li>
-      
-        <li class="covered" data-hits="42" data-linenumber="35">
-          <span class="hits">42</span>
-          
-          <code class="ruby">      present_data.merge!({k=&gt;val[k]})</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="36">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="14" data-linenumber="37">
-          <span class="hits">14</span>
-          
-          <code class="ruby">    trunc_values</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="38">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="39">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="40">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def proficient_by_race_or_ethnicity(race)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="41">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    subject_keys = data.keys[3..-1]</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="42">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    years = create_year_keys(subject_keys)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="43">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    final = {}</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="44">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    years.each do |year|</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="45">
-          <span class="hits">8</span>
-          
-          <code class="ruby">      final.merge!({year=&gt;create_inner_hash(subject_keys,year,race)})</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="46">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="47">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    final</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="48">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="49">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="50">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def create_inner_hash(subject_keys, year, race)</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="51">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    inner_values = {}</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="52">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    subject_keys.each do |subject|</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="53">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      lowest_value = {subject=&gt;get_lowest_hash_values(data[subject], year, race)}</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="54">
-          <span class="hits">24</span>
-          
-          <code class="ruby">      inner_values.merge!(lowest_value)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="55">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="8" data-linenumber="56">
-          <span class="hits">8</span>
-          
-          <code class="ruby">    inner_values</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="57">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="58">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="59">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def get_lowest_hash_values(data, year, race)</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="60">
-          <span class="hits">24</span>
-          
-          <code class="ruby">    shorten_float(data[year][race])</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="61">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="62">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="63">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def create_year_keys(subject_keys)</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="64">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    year_keys = subject_keys.map do |key|</code>
-        </li>
-      
-        <li class="covered" data-hits="6" data-linenumber="65">
-          <span class="hits">6</span>
-          
-          <code class="ruby">      temp_keys = data[key].keys</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="66">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="67">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    year_keys = year_keys.sort.flatten.uniq</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="68">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="69">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="70">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def proficient_for_subject_by_grade_in_year(subject, grade, year)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="71">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    proficient_by_grade(grade)[year][subject]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="72">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="73">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="74">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def proficient_for_subject_by_race_in_year(subject, race, year)</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="75">
-          <span class="hits">1</span>
-          
-          <code class="ruby">    proficient_by_race_or_ethnicity(race)[year][subject]</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="76">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="77">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="78">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def convert_grade_to_sym(grade)</code>
-        </li>
-      
-        <li class="covered" data-hits="3" data-linenumber="79">
-          <span class="hits">3</span>
-          
-          <code class="ruby">    unless grade == 3 || grade == 8</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="80">
-          <span class="hits">1</span>
-          
-          <code class="ruby">      raise &quot;UnknownDataError&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="81">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="covered" data-hits="2" data-linenumber="82">
-          <span class="hits">2</span>
-          
-          <code class="ruby">    return :third_grade if grade == 3</code>
-        </li>
-      
-        <li class="missed" data-hits="0" data-linenumber="83">
-          
-          
-          <code class="ruby">    return :eighth_grade if grade == 8</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="84">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="85">
-          
-          
-          <code class="ruby">end</code>
-        </li>
-      
-    </ol>
-  </pre>
-</div>
-      
-        <div class="source_table" id="3dbe83f4a55f0fadea4b9025b21257a51e6cd05d">
-  <div class="header">
-    <h3>lib/statewide_test_repository.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
-    <div>
-      <b>35</b> relevant lines. 
-      <span class="green"><b>35</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
-    </div>
-  </div>
-  
-  <pre>
-    <ol>
-      
-        <li class="covered" data-hits="1" data-linenumber="1">
-          <span class="hits">1</span>
-          
-          <code class="ruby">require_relative &quot;../lib/statewide_test&quot;</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="2">
-          <span class="hits">1</span>
-          
-          <code class="ruby">require_relative &quot;../lib/truncate&quot;</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="3">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="4">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="5">
-          <span class="hits">1</span>
-          
-          <code class="ruby">class StatewideTestRepository</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="6">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  include Truncate</code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="7">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  attr_reader :statewide</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="8">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="9">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def initialize</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="10">
-          <span class="hits">24</span>
-          
-          <code class="ruby">    @statewide = Array.new</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="12">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="13">
-          <span class="hits">1</span>
-          
-          <code class="ruby">  def load_data(file)</code>
-        </li>
-      
-        <li class="covered" data-hits="24" data-linenumber="14">
-          <span class="hits">24</span>
-          
-          <code class="ruby">    file[:statewide_testing].each do |key,value|</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="15">
-          
-          
-          <code class="ruby">      </code>
-        </li>
-      
-        <li class="covered" data-hits="120" data-linenumber="16">
-          <span class="hits">120</span>
-          
-          <code class="ruby">      data = get_file_data(value)</code>
-        </li>
-      
-        <li class="covered" data-hits="120" data-linenumber="17">
-          <span class="hits">120</span>
-          
-          <code class="ruby">      create_data(data, key)</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="18">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="19">
-          
-          
-          <code class="ruby">  end</code>
-        </li>
-      
-        <li class="never" data-hits="" data-linenumber="20">
-          
-          
-          <code class="ruby"></code>
-        </li>
-      
-        <li class="covered" data-hits="1" data-linenumber="21">
-          <span class="hits">1</span>
-          
           <code class="ruby">  def get_file_data(file)</code>
         </li>
       
-        <li class="covered" data-hits="120" data-linenumber="22">
+        <li class="covered" data-hits="120" data-linenumber="23">
           <span class="hits">120</span>
           
           <code class="ruby">    Load.file_load(file)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
+        <li class="never" data-hits="" data-linenumber="24">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="24">
+        <li class="never" data-hits="" data-linenumber="25">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="25">
+        <li class="covered" data-hits="1" data-linenumber="26">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_data(data, key)</code>
         </li>
       
-        <li class="covered" data-hits="120" data-linenumber="26">
+        <li class="covered" data-hits="120" data-linenumber="27">
           <span class="hits">120</span>
           
           <code class="ruby">    data.each do |row|</code>
         </li>
       
-        <li class="covered" data-hits="377154" data-linenumber="27">
+        <li class="covered" data-hits="377154" data-linenumber="28">
           <span class="hits">377154</span>
           
           <code class="ruby">      statewide_test = find_by_name(row[:location])</code>
         </li>
       
-        <li class="covered" data-hits="377154" data-linenumber="28">
+        <li class="covered" data-hits="377154" data-linenumber="29">
           <span class="hits">377154</span>
           
           <code class="ruby">      is_statewide_nil?(row, statewide_test, key)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="29">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="32">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
+        <li class="covered" data-hits="1" data-linenumber="33">
           <span class="hits">1</span>
           
           <code class="ruby">  def is_statewide_nil?(row, statewide_test, key)</code>
         </li>
       
-        <li class="covered" data-hits="377154" data-linenumber="33">
+        <li class="covered" data-hits="377154" data-linenumber="34">
           <span class="hits">377154</span>
           
           <code class="ruby">    if statewide_test.nil?</code>
         </li>
       
-        <li class="covered" data-hits="2733" data-linenumber="34">
+        <li class="covered" data-hits="2733" data-linenumber="35">
           <span class="hits">2733</span>
           
           <code class="ruby">      create_statewide(key, row)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="35">
+        <li class="never" data-hits="" data-linenumber="36">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="374421" data-linenumber="36">
+        <li class="covered" data-hits="374421" data-linenumber="37">
           <span class="hits">374421</span>
           
           <code class="ruby">      statewide_test.add_testing(create_numeric_data(row), key)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="37">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="38">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="39">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="40">
+        <li class="covered" data-hits="1" data-linenumber="41">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_statewide(key, row)</code>
         </li>
       
-        <li class="covered" data-hits="2733" data-linenumber="41">
+        <li class="covered" data-hits="2733" data-linenumber="42">
           <span class="hits">2733</span>
           
           <code class="ruby">    @statewide &lt;&lt; StatewideTest.new(statewide_testing_hash(key, row))</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="42">
+        <li class="never" data-hits="" data-linenumber="43">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="43">
+        <li class="never" data-hits="" data-linenumber="44">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="44">
+        <li class="covered" data-hits="1" data-linenumber="45">
           <span class="hits">1</span>
           
           <code class="ruby">  def statewide_testing_hash(key, data)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="45">
-          
-          
-          <code class="ruby">    {</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="46">
           
           
-          <code class="ruby">      name: DataScrub.clean_name(data[:location]),</code>
+          <code class="ruby">    {</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="47">
           
           
+          <code class="ruby">      name: DataScrub.clean_name(data[:location]),</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="48">
+          
+          
           <code class="ruby">      key =&gt; create_numeric_data(data)</code>
         </li>
       
-        <li class="covered" data-hits="2733" data-linenumber="48">
+        <li class="covered" data-hits="2733" data-linenumber="49">
           <span class="hits">2733</span>
           
           <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="49">
+        <li class="never" data-hits="" data-linenumber="50">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="50">
+        <li class="never" data-hits="" data-linenumber="51">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="51">
+        <li class="covered" data-hits="1" data-linenumber="52">
           <span class="hits">1</span>
           
           <code class="ruby">  def create_numeric_data(data)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="52">
+        <li class="never" data-hits="" data-linenumber="53">
           
           
           <code class="ruby">    {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="53">
+        <li class="never" data-hits="" data-linenumber="54">
           
           
           <code class="ruby">      data[:timeframe].to_i =&gt;</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="54">
+        <li class="never" data-hits="" data-linenumber="55">
           
           
           <code class="ruby">      {</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="55">
+        <li class="never" data-hits="" data-linenumber="56">
           
           
           <code class="ruby">        score_or_race(data) =&gt; data[:data].to_f</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="56">
+        <li class="never" data-hits="" data-linenumber="57">
           
           
           <code class="ruby">      }</code>
         </li>
       
-        <li class="covered" data-hits="377154" data-linenumber="57">
+        <li class="covered" data-hits="377154" data-linenumber="58">
           <span class="hits">377154</span>
           
           <code class="ruby">    }</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="58">
+        <li class="never" data-hits="" data-linenumber="59">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="59">
+        <li class="never" data-hits="" data-linenumber="60">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="60">
+        <li class="covered" data-hits="1" data-linenumber="61">
           <span class="hits">1</span>
           
           <code class="ruby">  def score_or_race(data)</code>
         </li>
       
-        <li class="covered" data-hits="377154" data-linenumber="61">
+        <li class="covered" data-hits="377154" data-linenumber="62">
           <span class="hits">377154</span>
           
           <code class="ruby">    return scrub_key(data[:score]) if data[:score] != nil</code>
         </li>
       
-        <li class="covered" data-hits="262368" data-linenumber="62">
+        <li class="covered" data-hits="262368" data-linenumber="63">
           <span class="hits">262368</span>
           
           <code class="ruby">    return scrub_key(data[:race_ethnicity]) if data[:race_ethnicity] != nil</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="63">
+        <li class="never" data-hits="" data-linenumber="64">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="64">
+        <li class="never" data-hits="" data-linenumber="65">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="65">
+        <li class="covered" data-hits="1" data-linenumber="66">
           <span class="hits">1</span>
           
           <code class="ruby">  def find_by_name(search_name)</code>
         </li>
       
-        <li class="covered" data-hits="378627" data-linenumber="66">
+        <li class="covered" data-hits="378627" data-linenumber="67">
           <span class="hits">378627</span>
           
           <code class="ruby">    search_name = DataScrub.clean_name(search_name)</code>
         </li>
       
-        <li class="covered" data-hits="378627" data-linenumber="67">
+        <li class="covered" data-hits="378627" data-linenumber="68">
           <span class="hits">378627</span>
           
           <code class="ruby">    found = @statewide.find do |statewide_test|</code>
         </li>
       
-        <li class="covered" data-hits="34227845" data-linenumber="68">
+        <li class="covered" data-hits="34227845" data-linenumber="69">
           <span class="hits">34227845</span>
           
           <code class="ruby">      statewide_test if statewide_test.data[:name] == search_name</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="69">
+        <li class="never" data-hits="" data-linenumber="70">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="378627" data-linenumber="70">
+        <li class="covered" data-hits="378627" data-linenumber="71">
           <span class="hits">378627</span>
           
           <code class="ruby">    return found</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="71">
+        <li class="never" data-hits="" data-linenumber="72">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="72">
+        <li class="never" data-hits="" data-linenumber="73">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="73">
+        <li class="never" data-hits="" data-linenumber="74">
           
           
           <code class="ruby">end</code>
@@ -4542,6 +4760,24 @@
   </pre>
 </div>
       
+        <div class="source_table" id="29457dcf4d2c31b60e7b79bb756b2a6f2b247cd4">
+  <div class="header">
+    <h3>test/errors_test.rb</h3>
+    <h4><span class="green">100.0 %</span> covered</h4>
+    <div>
+      <b>0</b> relevant lines. 
+      <span class="green"><b>0</b> lines covered</span> and
+      <span class="red"><b>0</b> lines missed.</span>
+    </div>
+  </div>
+  
+  <pre>
+    <ol>
+      
+    </ol>
+  </pre>
+</div>
+      
         <div class="source_table" id="04a9524c30d55e66677e06420981b0b62dfb9bea">
   <div class="header">
     <h3>test/headcount_analyst_test.rb</h3>
@@ -5223,11 +5459,11 @@
         <div class="source_table" id="c9a4db9bc6a0d73f0304341c64d01a17f34c7b29">
   <div class="header">
     <h3>test/statewide_test_test.rb</h3>
-    <h4><span class="green">100.0 %</span> covered</h4>
+    <h4><span class="green">96.3 %</span> covered</h4>
     <div>
       <b>27</b> relevant lines. 
-      <span class="green"><b>27</b> lines covered</span> and
-      <span class="red"><b>0</b> lines missed.</span>
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>1</b> lines missed.</span>
     </div>
   </div>
   
@@ -5456,8 +5692,8 @@
           <code class="ruby">    end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="38">
-          <span class="hits">1</span>
+        <li class="missed" data-hits="0" data-linenumber="38">
+          
           
           <code class="ruby">    assert_equal(&#39;UnknownDataError&#39;,exception.message)</code>
         </li>

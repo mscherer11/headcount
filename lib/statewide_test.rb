@@ -9,7 +9,6 @@ class StatewideTest < UnknownDataError
   def initialize(data=nil)
     @data = data
   end
-  VALID_GRADES = [3,8]
 
   def add_testing(row, key)
     if data[key] == nil
@@ -22,8 +21,8 @@ class StatewideTest < UnknownDataError
   end
 
   def proficient_by_grade(grade)
-    grade == 8 || 3 ? convert_grade_to_sym(grade) : errors(grade)
-    # raise UnknownDataError unless grade == 3 || grade == 8
+    grade = convert_grade_to_sym(grade)
+    errors(grade)
     final = {}
     data[grade].each do |key,val|
       conversion = trunc_grades(val)
@@ -76,9 +75,9 @@ class StatewideTest < UnknownDataError
   end
 
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
-    grade = convert_grade_to_sym(grade)
-    errors_by_grade(subject, grade, year)
-    proficient_by_grade(grade)[year][subject]
+    error_wrapper(subject, grade, year)
+    value = proficient_by_grade(grade)[year][subject]
+    value == 0.0 ? value = "N/A": value
   end
 
   def proficient_for_subject_by_race_in_year(subject, race, year)
@@ -86,9 +85,9 @@ class StatewideTest < UnknownDataError
     proficient_by_race_or_ethnicity(race)[year][subject]
   end
 
-  # def errors_by_race(subject, grade, year)
-  #   raise UnknownDataError unless data[grade].has_key?(year)
-  #   raise UnknownDataError unless data[grade][year].has_key?(subject)
-  # end
+  def error_wrapper(subject, grade, year)
+    grade = convert_grade_to_sym(grade)
+    errors_by_grade(subject, grade, year)
+  end
 
 end
