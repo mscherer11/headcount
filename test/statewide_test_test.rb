@@ -30,12 +30,27 @@ class StatewideTestTest < Minitest::Test
    assert_equal expected, testing.proficient_by_grade(3)
   end
 
-  def test_proficiency_by_grade_raise_error
+  def test_errors
     testing = @statewide_test.find_by_name("ACADEMY 20")
-    exception = assert_raises RuntimeError do
+    exception = assert_raises UnknownDataError do
       testing.proficient_by_grade(1)
     end
-    assert_equal('UnknownDataError',exception.message)
+    assert_equal("Invalid input.",exception.message)
+
+    exception = assert_raises UnknownDataError do
+      testing.proficient_for_subject_by_grade_in_year(:pizza, 8, 2011)
+    end
+    assert_equal("Invalid input.",exception.message)
+
+    exception = assert_raises UnknownDataError do
+      testing.proficient_for_subject_by_race_in_year(:reading, :pizza, 2013)
+    end
+    assert_equal("Invalid input.",exception.message)
+
+    exception = assert_raises UnknownDataError do
+      testing.proficient_for_subject_by_race_in_year(:pizza, :white, 2013)
+    end
+    assert_equal("Invalid input.",exception.message)
   end
 
   def test_proficient_by_race_or_ethnicity_returns_values

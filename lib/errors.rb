@@ -1,6 +1,8 @@
 class UnknownDataError < StandardError
+  attr_reader :message
   def initialize
     super
+    @message = "Invalid input."
   end
 
   def errors(grade)
