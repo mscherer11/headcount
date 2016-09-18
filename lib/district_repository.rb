@@ -3,16 +3,18 @@ require_relative "../lib/load"
 require_relative "../lib/data_scrub"
 require_relative "district"
 require_relative "enrollment_repository"
+require_relative "statewide_test_repository"
 
 
 class DistrictRepository
   include Load
 
-  attr_reader :districts, :enrollment_repo
+  attr_reader :districts, :enrollment_repo, :statewide_test_repository
 
   def initialize
     @districts = []
     @enrollment_repo = EnrollmentRepository.new
+    @statewide_test_repository = StatewideTestRepository.new
   end
 
   def load_data(file)
@@ -22,6 +24,8 @@ class DistrictRepository
     end
     @enrollment_repo.load_data(file)
     find_enrollments
+    @statewide_test_repository.load_data(file)
+    find_statewide_testing
   end
 
   def create_district(row)
@@ -48,6 +52,12 @@ class DistrictRepository
   def find_enrollments
     districts.each do |district|
       district.enrollment = enrollment_repo.find_by_name(district.name)
+    end
+  end
+
+  def find_statewide_testing
+    districts.each do |district|
+      district.statewide_test = statewide_test_repository.find_by_name(district.name)
     end
   end
 

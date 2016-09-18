@@ -1,13 +1,15 @@
 require_relative "../lib/statewide_test_repository"
 require_relative '../lib/truncate'
+require_relative "../lib/errors.rb"
 
-class StatewideTest
+class StatewideTest < UnknownDataError
   include Truncate
   attr_reader :data
 
   def initialize(data=nil)
     @data = data
   end
+  VALID_GRADES = [3,8]
 
   def add_testing(row, key)
     if data[key] == nil
@@ -20,12 +22,18 @@ class StatewideTest
   end
 
   def proficient_by_grade(grade)
-    grade = convert_grade_to_sym(grade)
+    grade == 8 || 3 ? convert_grade_to_sym(grade) : errors(grade)
+    # raise UnknownDataError unless grade == 3 || grade == 8
     final = {}
     data[grade].each do |key,val|
       conversion = trunc_grades(val)
       final.merge({key=>conversion})
     end
+  end
+
+  def convert_grade_to_sym(grade)
+    return :third_grade if grade == 3
+    return :eighth_grade if grade == 8
   end
 
   def trunc_grades(val)
@@ -68,18 +76,19 @@ class StatewideTest
   end
 
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
+    grade = convert_grade_to_sym(grade)
+    errors_by_grade(subject, grade, year)
     proficient_by_grade(grade)[year][subject]
   end
 
   def proficient_for_subject_by_race_in_year(subject, race, year)
+    errors_by_race(subject, race, year)
     proficient_by_race_or_ethnicity(race)[year][subject]
   end
 
-  def convert_grade_to_sym(grade)
-    unless grade == 3 || grade == 8
-      raise "UnknownDataError"
-    end
-    return :third_grade if grade == 3
-    return :eighth_grade if grade == 8
-  end
+  # def errors_by_race(subject, grade, year)
+  #   raise UnknownDataError unless data[grade].has_key?(year)
+  #   raise UnknownDataError unless data[grade][year].has_key?(subject)
+  # end
+
 end

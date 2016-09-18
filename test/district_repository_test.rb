@@ -10,6 +10,13 @@ class TestDistrictRepository < Minitest::Test
       :enrollment => {
       :kindergarten => "./test/fixtures/Kindergartners in full-day program.csv",
       :high_school_graduation => "./test/fixtures/High school graduation rates.csv"
+    },
+        :statewide_testing => {
+          :third_grade => "./test/fixtures/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+          :eighth_grade => "./test/fixtures/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+          :math => "./test/fixtures/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+          :reading => "./test/fixtures/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+          :writing => "./test/fixtures/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
       }
       })
   end
@@ -41,6 +48,14 @@ class TestDistrictRepository < Minitest::Test
   def test_can_it_return_a_data_value
     district = @repo.find_by_name("ACADEMY 20")
     assert_equal 0.30201, district.enrollment.kindergarten_participation_in_year(2004)
+  end
+
+  def test_can_it_create_an_instance_of_StatewideRepository
+    assert_instance_of StatewideTestRepository, @repo.statewide_test_repository
+  end
+
+  def test_can_it_populate_StatewideRepository_with_data
+    refute_equal [], @repo.statewide_test_repository.statewide
   end
 
 end

@@ -1,5 +1,6 @@
 require_relative "../lib/statewide_test"
 require_relative "../lib/truncate"
+require_relative "../lib/errors.rb"
 
 
 class StatewideTestRepository
@@ -12,6 +13,7 @@ class StatewideTestRepository
 
   def load_data(file)
     file[:statewide_testing].each do |key,value|
+
       data = get_file_data(value)
       create_data(data, key)
     end
