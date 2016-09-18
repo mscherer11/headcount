@@ -11,6 +11,13 @@ class HeadcountAnalystTest < Minitest::Test
       :enrollment => {
       :kindergarten => "./data/Kindergartners in full-day program.csv",
       :high_school_graduation => "./data/High school graduation rates.csv"
+    },
+        :statewide_testing => {
+          :third_grade => "./data/3rd grade students scoring proficient or above on the CSAP_TCAP.csv",
+          :eighth_grade => "./data/8th grade students scoring proficient or above on the CSAP_TCAP.csv",
+          :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
+          :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
+          :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
       }
       })
     @h = HeadcountAnalyst.new(dr)
@@ -23,6 +30,7 @@ class HeadcountAnalystTest < Minitest::Test
   def test_can_it_find_an_average_with_state
     assert_equal 0.766, @h.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'COLORADO')
   end
+
   def test_can_it_find_an_average_with_district
     assert_equal 0.447, @h.kindergarten_participation_rate_variation('ACADEMY 20', :against => 'YUMA SCHOOL DISTRICT 1')
   end
@@ -44,7 +52,7 @@ class HeadcountAnalystTest < Minitest::Test
     assert_equal false, @h.kindergarten_participation_correlates_with_high_school_graduation(:for => 'STATEWIDE')
   end
 
-  def test_does_kindergarten_predict_high_school_graduation_for_state
+  def test_does_kindergarten_predict_high_school_graduation_across_districts
   districts = ["ACADEMY 20", 'PARK (ESTES PARK) R-3', 'YUMA SCHOOL DISTRICT 1']
   assert @h.kindergarten_participation_correlates_with_high_school_graduation(:across => districts)
   end
