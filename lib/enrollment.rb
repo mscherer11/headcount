@@ -2,10 +2,11 @@ require_relative '../lib/truncate'
 
 class Enrollment
   include Truncate
-  attr_reader :data
+  attr_reader :data, :name
 
   def initialize(data)
     @data = data
+    @name = data[:name]
   end
 
   def kindergarten_participation_by_year
@@ -32,10 +33,6 @@ class Enrollment
     data[:high_school_graduation].map do |key,val|
       [key,shorten_float(val)]
     end.to_h
-  end
-
-  def name
-    data[:name]
   end
 
 end

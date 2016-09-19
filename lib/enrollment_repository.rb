@@ -23,12 +23,7 @@ class EnrollmentRepository
   end
 
   def kindergarten_name(key)
-    if key == :kindergarten
-      key = :kindergarten_participation
-    else
-      key
-    end
-    return key
+    key == :kindergarten ? key = :kindergarten_participation : key
   end
 
   def create_data(data, key)

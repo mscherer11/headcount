@@ -13,7 +13,6 @@ class StatewideTestRepository
 
   def load_data(file)
     file[:statewide_testing].each do |key,value|
-
       data = get_file_data(value)
       create_data(data, key)
     end

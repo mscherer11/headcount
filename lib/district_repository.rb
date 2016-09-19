@@ -22,9 +22,17 @@ class DistrictRepository
     data.each do |row|
       create_district(row) unless find_by_name(row[:location])
     end
+    enrollment_load(file)
+    statewide_load(file)
+  end
+
+  def enrollment_load(file)
     @enrollment_repo.load_data(file)
     find_enrollments
-    @statewide_test_repository.load_data(file)
+  end
+
+  def statewide_load(file)
+    @statewide_test_repository.load_data(file) if file.has_key?(:statewide_testing)
     find_statewide_testing
   end
 
