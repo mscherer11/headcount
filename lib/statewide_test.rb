@@ -39,9 +39,13 @@ class StatewideTest < UnknownDataError
     present_data = Hash.new
     trunc_values = val.map do |k, v|
       val[k] = shorten_float(v)
-      present_data.merge!({k=>val[k]})
+      merge_grades(present_data, val, k, v)
     end
     trunc_values
+  end
+
+  def merge_grades(present_data, val, k, v)
+    present_data.merge!({k=>val[k]})
   end
 
   def proficient_by_race_or_ethnicity(race)
@@ -71,7 +75,7 @@ class StatewideTest < UnknownDataError
     year_keys = subject_keys.map do |key|
       temp_keys = data[key].keys
     end
-    year_keys = year_keys.sort.flatten.uniq
+    year_keys.sort.flatten.uniq!
   end
 
   def proficient_for_subject_by_grade_in_year(subject, grade, year)
