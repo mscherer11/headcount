@@ -77,11 +77,7 @@ class HeadcountAnalyst
 
   def above_70_percent?(data)
     percentage = data.count(true).to_f/data.length.to_f
-    if percentage > 0.7
-      true
-    else
-      false
-    end
+    percentage > 0.7 ? true : false
   end
 
 end
