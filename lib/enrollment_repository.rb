@@ -5,7 +5,7 @@ require_relative "enrollment"
 
 class EnrollmentRepository
   attr_reader :enrollments
-
+  include DataScrub
 
   def initialize
     @enrollments = []
@@ -51,14 +51,14 @@ class EnrollmentRepository
 
   def enrollment_hash(key, data)
     {
-      name: DataScrub.clean_name(data[:location]),
+      name: clean_name(data[:location]),
       key => create_numeric_data(data)
     }
   end
 
 
   def find_by_name(search_name)
-    search_name = DataScrub.clean_name(search_name)
+    search_name = clean_name(search_name)
     found = @enrollments.find do |enrollment|
       enrollment if enrollment.data[:name] == search_name
     end

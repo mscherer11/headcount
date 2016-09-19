@@ -1,10 +1,10 @@
 require_relative "../lib/statewide_test"
-require_relative "../lib/truncate"
+require_relative "../lib/data_scrub"
 require_relative "../lib/errors.rb"
 
 
 class StatewideTestRepository
-  include Truncate
+  include DataScrub
   attr_reader :statewide
 
   def initialize
