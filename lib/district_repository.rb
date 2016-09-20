@@ -4,17 +4,19 @@ require_relative "../lib/data_scrub"
 require_relative "district"
 require_relative "enrollment_repository"
 require_relative "statewide_test_repository"
+require_relative "economic_profile_repository"
 
 
 class DistrictRepository
   include Load
 
-  attr_reader :districts, :enrollment_repo, :statewide_test_repository
+  attr_reader :districts, :enrollment_repo, :statewide_test_repository, :economic_profile_repository
 
   def initialize
     @districts = []
     @enrollment_repo = EnrollmentRepository.new
     @statewide_test_repository = StatewideTestRepository.new
+    @economic_profile_repository = EconomicProfileRepository.new
   end
 
   def load_data(file)
@@ -24,6 +26,7 @@ class DistrictRepository
     end
     enrollment_load(file)
     statewide_load(file)
+    economic_profile_load(file)
   end
 
   def enrollment_load(file)
@@ -34,6 +37,11 @@ class DistrictRepository
   def statewide_load(file)
     @statewide_test_repository.load_data(file) if file.has_key?(:statewide_testing)
     find_statewide_testing
+  end
+
+  def economic_profile_load(file)
+    @economic_profile_repository.load_data(file) if file.has_key?(:economic_profile)
+    find_economic_profiles
   end
 
   def create_district(row)
@@ -66,6 +74,12 @@ class DistrictRepository
   def find_statewide_testing
     districts.each do |district|
       district.statewide_test = statewide_test_repository.find_by_name(district.name)
+    end
+  end
+
+  def find_economic_profiles
+    districts.each do |district|
+      district.economic_profile = economic_profile_repository.find_by_name(district.name)
     end
   end
 

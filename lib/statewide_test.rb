@@ -1,9 +1,10 @@
 require_relative "../lib/statewide_test_repository"
 require_relative '../lib/truncate'
-require_relative "../lib/errors.rb"
+require_relative "../lib/errors"
 
 class StatewideTest < UnknownDataError
   include Truncate
+
   attr_reader :data
 
   def initialize(data=nil)
