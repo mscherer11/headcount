@@ -1,5 +1,6 @@
 class UnknownDataError < StandardError
   attr_reader :message
+
   def initialize
     super
     @message = "Invalid input."
@@ -20,4 +21,27 @@ class UnknownDataError < StandardError
     raise UnknownDataError unless data[subject][year].has_key?(race)
   end
 
+  def errors_by_year_median_house(year)
+    unless data[:median_household_income].keys.flatten.include?(year)
+      raise UnknownDataError
+    end
+  end
+
+  def errors_by_year_lunch(year)
+    unless data[:free_or_reduced_price_lunch].keys.include?(year)
+      raise UnknownDataError
+    end
+  end
+
+  def errors_by_poverty(year)
+    unless data[:children_in_poverty].keys.include?(year)
+      raise UnknownDataError
+    end
+  end
+
+  def errors_by_title_i(year)
+    unless data[:title_i].keys.include?(year)
+      raise UnknownDataError
+    end
+  end
 end
