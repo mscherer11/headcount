@@ -54,7 +54,6 @@ class EconomicProfileRepository
 
   def create_profiles(key, row)
     economic_profiles << EconomicProfile.new(economic_profile_hash(key, row))
-    binding.pry
   end
 
   def economic_profile_hash(key, data)

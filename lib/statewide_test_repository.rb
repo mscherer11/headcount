@@ -58,8 +58,8 @@ class StatewideTestRepository
   end
 
   def score_or_race(data)
-    return scrub_key(data[:score]) if data[:score] != nil
-    return scrub_key(data[:race_ethnicity]) if data[:race_ethnicity] != nil
+    return scrub_key(data[1]) unless data[1].nil?
+    # return scrub_key(data[:race_ethnicity]) if data[:race_ethnicity] != nil
   end
 
   def find_by_name(search_name)

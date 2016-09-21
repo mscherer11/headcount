@@ -116,17 +116,20 @@ class ResultSet
   def statewide_average(attribute)
     find_values = raw[attribute.to_sym].values
     average_numbers = find_values.map do |value|
-      extract_values_for_average(value)
-    end
-    average_numbers = average_numbers.flatten
+      value.values
+    end.flatten
+    binding.pry
+    # average_numbers = average_numbers.flatten
     average_numbers.reduce(:+)/average_numbers.count
   end
 
-  def extract_values_for_average(value)
-    value.map do |k,v|
-      v
-    end
-  end
+  # def extract_values_for_average(value)
+  #   value.values
+  #   # binding.pry
+  #   # value.map do |k,v|
+  #   #   v
+  #   # end
+  # end
 
   def high_poverty_and_high_school_graduation
     average_lunch = statewide_average(:free_or_reduced_price_lunch)
