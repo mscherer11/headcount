@@ -31,8 +31,29 @@ class ResultSetTest < Minitest::Test
 
   def test_can_it_find_raw_data
     expected = {"2010"=>0.724, "2011"=>0.739, "2012"=>0.75354, "2013"=>0.769, "2014"=>0.773}
-    assert_equal expected, @result.raw[:high_school_graduation]["Colorado"]
+    assert_equal expected, @result.raw[:high_school_graduation]["COLORADO"]
   end
 
+  def test_can_it_create_average_for_a_district
+    assert_equal 0.751708, @result.district_average(:high_school_graduation, "COLORADO")
+  end
+
+  def test_can_it_search_a_name
+    assert_instance_of ResultEntry, @result.find_by_name("ACADEMY 20")
+  end
+
+  def test_can_it_find_matching_districts
+    assert_equal "TEST1", @result.matching_districts(:median_household_income, 1).first.name
+    assert_equal "TEST2", @result.matching_districts(:median_household_income, 1).last.name
+  end
+
+  def test_can_it_calculate_statewide_average
+    assert_equal 60434.916666666664, @result.statewide_average(:median_household_income)
+    assert_equal 0.13543411764705884, @result.statewide_average(:children_in_poverty)
+  end
+
+  def test_can_it_find_districts_with_high_poverty_and_graduation_rates
+    assert_equal 1, @result.high_poverty_and_high_school_graduation.count
+  end
 
 end

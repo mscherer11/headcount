@@ -25,11 +25,11 @@ class StatewideTestRepository
   def create_data(data, key)
     data.each do |row|
       statewide_test = find_by_name(row[:location])
-      is_statewide_nil?(row, statewide_test, key)
+      is_statewide_nil(row, statewide_test, key)
     end
   end
 
-  def is_statewide_nil?(row, statewide_test, key)
+  def is_statewide_nil(row, statewide_test, key)
     if statewide_test.nil?
       create_statewide(key, row)
     else
