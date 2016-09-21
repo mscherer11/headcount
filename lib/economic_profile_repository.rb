@@ -1,8 +1,10 @@
 require 'pry'
 require_relative "../lib/economic_profile"
 require_relative "../lib/data_scrub"
-require_relative "../lib/errors.rb"
-require_relative "../lib/load.rb"
+require_relative "../lib/errors"
+require_relative "../lib/load"
+require_relative "../lib/creation_module"
+
 
 class EconomicProfileRepository
   include DataScrub
@@ -52,6 +54,7 @@ class EconomicProfileRepository
 
   def create_profiles(key, row)
     economic_profiles << EconomicProfile.new(economic_profile_hash(key, row))
+    binding.pry
   end
 
   def economic_profile_hash(key, data)
