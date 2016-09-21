@@ -6,45 +6,39 @@ require "pry"
 class ResultEntryTest < Minitest::Test
 
   def setup
-    @result = ResultSet.new
-    @result.load_data({
-        :high_school_graduation => "./test/fixtures/High school graduation rates.csv",
-        :median_household_income => "./test/fixtures/Median household income.csv",
-        :children_in_poverty => "./test/fixtures/School-aged children in poverty.csv",
-        :free_or_reduced_price_lunch => "./test/fixtures/Students qualifying for free or reduced price lunch.csv",
-      })
+    @r1 = ResultEntry.new({name: "test1", free_and_reduced_price_lunch: 0.5,
+      children_in_poverty: 0.25,
+      high_school_graduation: 0.75})
+    @r2 = ResultEntry.new({name:"test2",free_and_reduced_price_lunch: 0.3,
+      children_in_poverty: 0.2,
+      high_school_graduation: 0.6})
+    @r3 = ResultEntry.new({name:"test3"})
+    end
+
+  def test_name
+    assert_equal "test1", @r1.name
   end
 
-  def test_can_it_create_a_Result_entry
-    assert_instance_of ResultEntry, @result.result_entries.first
+  def test_entry
+    @r3.add_to_entry({free_and_reduced_price_lunch: 0.3,
+      children_in_poverty: 0.2,
+      high_school_graduation: 0.6})
+    expected = {name: "test3",free_and_reduced_price_lunch: 0.3,
+      children_in_poverty: 0.2,
+      high_school_graduation: 0.6}
+      assert_equal expected, @r3.entry
   end
 
-  def test_can_it_add_data
-    name = @result.find_by_name("COLORADO")
-    assert_equal [:high_school_graduation, :median_household_income, :free_or_reduced_price_lunch], name.data.keys
+  def test_can_it_find_free_and_reduced_lunch_rate
+    assert_equal 0.5, @r1.free_and_reduced_price_lunch_rate
   end
 
-  def test_does_it_have_free_and_reduced_price_lunch_rate
-    name = @result.find_by_name("ACADEMY 20")
-
-
-    assert_equal 0.3501060000000001, name.free_or_reduced_price_lunch_rate
+  def test_can_it_find_children_in_poverty_rate
+    assert_equal 0.25, @r1.children_in_poverty_rate
   end
 
-  def test_does_it_have_children_in_poverty_rate
-    name = @result.find_by_name("ACADEMY 20")
-    assert_equal 0.04115176470588236, name.children_in_poverty_rate
+  def test_can_it_find_high_school_graduation_rate
+    assert_equal 0.75, @r1.high_school_graduation_rate
   end
-
-  def test_does_it_have_high_school_graduation_rate
-    name = @result.find_by_name("ACADEMY 20")
-    assert_equal 0.751708, name.high_school_graduation_rate
-  end
-
-  def test_does_it_median_household_income
-    name = @result.find_by_name("ACADEMY 20")
-    assert_equal 57408.0, name.median_household_income
-  end
-
 
 end

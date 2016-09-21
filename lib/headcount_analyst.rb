@@ -1,11 +1,15 @@
 require_relative '../lib/district_repository'
 require_relative '../lib/truncate'
+require_relative '../lib/result_set'
+
 
 class HeadcountAnalyst
   include Truncate
+  attr_reader :result_entry, :result_set
 
   def initialize(district_repo)
     @district_repo = district_repo
+    @result_set = ResultSet.new
   end
 
   def kindergarten_participation_rate_variation(subject1, subject2)
@@ -79,6 +83,71 @@ class HeadcountAnalyst
   def above_70_percent?(data)
     percentage = data.count(true).to_f/data.length.to_f
     percentage > 0.7 ? true : false
+  end
+
+  def calculate_statewide_average(attribute)
+    districts = @district_repo.districts
+    averages = districts.map do |district|
+      wrapped = average_wrapper(district, attribute)
+      average_math(wrapped.values)
+    end
+    create_entry_hash(attribute, average_math(averages), "statewide_average")
+    average_math(averages)
+  end
+
+  def average_wrapper(district, attribute)
+    found = {}
+    counter = 0
+    if attribute == :free_or_reduced_price_lunch
+      district.economic_profile.data[attribute].values.each do |val|
+        found.merge!(counter => val[:percentage])
+        counter += 1
+      end
+      found
+    elsif district.economic_profile.data.has_key?(attribute)
+      district.economic_profile.data[attribute]
+    elsif district.enrollment.data.has_key?(attribute)
+      district.enrollment.data[attribute]
+    else
+      {0=>0}
+    end
+  end
+
+  # def attribute_sort(district,attribute,found,counter)
+  #   district.economic_profile.data[attribute].values.each do |val|
+  #     found.merge!(counter => val[:percentage])
+  #     counter += 1
+  #   end
+  #   found
+  # end
+
+  def average_math(wrapped)
+    wrapped.reduce(:+)/wrapped.count
+  end
+
+  def create_entry_hash(attribute, data, name)
+    entry = find_entry(name)
+    if entry.nil?
+      create_entries(attribute, data, name)
+    else
+      entry.add_to_entry({attribute=>data})
+    end
+  end
+
+  def create_entries(attribute, data, name)
+    result_set.add_matching_districts(ResultEntry.new({
+      name: name,
+      attribute => data}))
+  end
+
+  def find_entry(name)
+    result_set.matching_districts.find do |result|
+      result.entry[:name]
+    end
+  end
+
+  def high_poverty_and_high_school_graduation
+    
   end
 
 end

@@ -1,32 +1,36 @@
 require "pry"
 
 class ResultEntry
+attr_reader :entry
 
-attr_reader :name, :data
-
-  def initialize(data, name)
-    @data = data
-    @name = name
+  def initialize(data)
+    @entry = {}
+    add_to_entry(data)
   end
 
-  def combine_data(key, average, district_name)
-    data.merge!(key=>average)
+  def add_to_entry(data)
+    entry.merge!(data)
   end
 
-  def free_or_reduced_price_lunch_rate
-    data[:free_or_reduced_price_lunch]
+  def name
+    entry[:name]
+  end
+
+  def free_and_reduced_price_lunch_rate
+    entry[:free_and_reduced_price_lunch]
   end
 
   def children_in_poverty_rate
-    data[:children_in_poverty]
+    entry[:children_in_poverty]
   end
 
   def high_school_graduation_rate
-    data[:high_school_graduation]
+    entry[:high_school_graduation]
   end
 
   def median_household_income
-    data[:median_household_income]
+    entry[:median_household_income]
   end
+
 
 end

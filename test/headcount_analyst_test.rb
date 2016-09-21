@@ -1,6 +1,7 @@
 require_relative 'test_helper'
 require_relative '../lib/headcount_analyst'
 require_relative '../lib/district_repository'
+require_relative '../lib/result_set'
 require 'pry'
 
 class HeadcountAnalystTest < Minitest::Test
@@ -18,10 +19,16 @@ class HeadcountAnalystTest < Minitest::Test
           :math => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Math.csv",
           :reading => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Reading.csv",
           :writing => "./data/Average proficiency on the CSAP_TCAP by race_ethnicity_ Writing.csv"
-      }
+      },
+      :economic_profile => {
+        :median_household_income => "./data/Median household income.csv",
+        :children_in_poverty => "./data/School-aged children in poverty.csv",
+        :free_or_reduced_price_lunch => "./data/Students qualifying for free or reduced price lunch.csv",
+        :title_i => "./data/Title I students.csv"
+        }
       })
     @h = HeadcountAnalyst.new(dr)
-  end
+    end
 
   def test_can_it_create_an_instance_of_HeadcountAnalyst
     assert_instance_of HeadcountAnalyst, @h
@@ -55,6 +62,32 @@ class HeadcountAnalystTest < Minitest::Test
   def test_does_kindergarten_predict_high_school_graduation_across_districts
   districts = ["ACADEMY 20", 'PARK (ESTES PARK) R-3', 'YUMA SCHOOL DISTRICT 1']
   assert @h.kindergarten_participation_correlates_with_high_school_graduation(:across => districts)
+  end
+
+  def test_can_it_create_a_Result_entry
+    @h.calculate_statewide_average(:high_school_graduation)
+    assert_instance_of ResultEntry, @h.result_set.matching_districts.first
+  end
+
+  def test_can_it_create_an_average
+    assert_equal 49705, @h.calculate_statewide_average(:median_household_income)
+    assert_equal 0.4091990313075509, @h.calculate_statewide_average(:free_or_reduced_price_lunch)
+    assert_equal 0.16400180695482608, @h.calculate_statewide_average(:children_in_poverty)
+    assert_equal 0.8103222651933705, @h.calculate_statewide_average(:high_school_graduation)
+  end
+
+  def test_can_it_find_an_entry_name
+    @h.calculate_statewide_average(:high_school_graduation)
+    refute nil, @h.find_entry("statewide_average")
+  end
+
+  def test_can_it_add_entries
+    @h.calculate_statewide_average(:median_household_income)
+    @h.calculate_statewide_average(:free_or_reduced_price_lunch)
+    @h.calculate_statewide_average(:children_in_poverty)
+    @h.calculate_statewide_average(:high_school_graduation)
+
+    assert_equal 1, @h.result_set.matching_districts.count
   end
 
 end
