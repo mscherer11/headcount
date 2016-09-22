@@ -3,7 +3,6 @@ require_relative "../lib/economic_profile"
 require_relative "../lib/data_scrub"
 require_relative "../lib/errors"
 require_relative "../lib/load"
-require_relative "../lib/creation_module"
 
 
 class EconomicProfileRepository
