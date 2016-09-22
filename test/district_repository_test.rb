@@ -40,7 +40,7 @@ class TestDistrictRepository < Minitest::Test
 
   def test_can_it_find_all_matches
     assert_equal 2, @repo.find_all_matching("C").count
-    assert_equal 1, @repo.find_all_matching("Co").count
+    assert_equal 2, @repo.find_all_matching("Co").count
   end
 
   def test_can_it_create_an_instance_of_EnrollmentRepository

@@ -18,11 +18,7 @@ class Enrollment
   end
 
   def add_participation(row, key)
-    if data[key] == nil
-      data.merge!({key=>row})
-    else
-      data[key].merge!(row)
-    end
+    data[key].nil? ? data.merge!({key=>row}) : data[key].merge!(row)
   end
 
   def graduation_rate_in_year(year)

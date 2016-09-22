@@ -14,7 +14,7 @@ class TestEnrollmentReposiotry < Minitest::Test
   end
 
   def test_can_repo_collect_data
-    assert_equal 2, @repo.enrollments.length
+    assert_equal 3, @repo.enrollments.length
   end
 
   def test_can_it_search_a_name

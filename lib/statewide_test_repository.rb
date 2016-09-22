@@ -25,11 +25,11 @@ class StatewideTestRepository
   def create_data(data, key)
     data.each do |row|
       statewide_test = find_by_name(row[:location])
-      is_statewide_nil?(row, statewide_test, key)
+      is_statewide_nil(row, statewide_test, key)
     end
   end
 
-  def is_statewide_nil?(row, statewide_test, key)
+  def is_statewide_nil(row, statewide_test, key)
     if statewide_test.nil?
       create_statewide(key, row)
     else
@@ -58,8 +58,8 @@ class StatewideTestRepository
   end
 
   def score_or_race(data)
-    return scrub_key(data[:score]) if data[:score] != nil
-    return scrub_key(data[:race_ethnicity]) if data[:race_ethnicity] != nil
+    return scrub_key(data[1]) unless data[1].nil?
+    # return scrub_key(data[:race_ethnicity]) if data[:race_ethnicity] != nil
   end
 
   def find_by_name(search_name)

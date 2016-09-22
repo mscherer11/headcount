@@ -56,7 +56,6 @@ class EnrollmentRepository
     }
   end
 
-
   def find_by_name(search_name)
     search_name = clean_name(search_name)
     found = @enrollments.find do |enrollment|
