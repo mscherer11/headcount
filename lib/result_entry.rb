@@ -16,8 +16,8 @@ attr_reader :entry
     entry[:name]
   end
 
-  def free_and_reduced_price_lunch_rate
-    entry[:free_and_reduced_price_lunch]
+  def free_or_reduced_price_lunch_rate
+    entry[:free_or_reduced_price_lunch]
   end
 
   def children_in_poverty_rate

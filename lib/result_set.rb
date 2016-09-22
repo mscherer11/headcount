@@ -6,7 +6,6 @@ class ResultSet
   include DataScrub
 
   attr_reader :matching_districts
-  attr_accessor :statewide_average
 
   def initialize
     @matching_districts = Array.new

@@ -3,7 +3,7 @@ require_relative "../lib/economic_profile_repository"
 require_relative '../lib/truncate'
 require_relative "../lib/errors.rb"
 
-class EconomicProfile# < UnknownDataError
+class EconomicProfile < UnknownDataError
 
   attr_reader :data
 

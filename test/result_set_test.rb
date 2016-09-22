@@ -5,10 +5,10 @@ require_relative "../../headcount/lib/result_entry"
 class ResultSetTest < Minitest::Test
 
   def setup
-    @r1 = ResultEntry.new({name: "test1", free_and_reduced_price_lunch: 0.5,
+    @r1 = ResultEntry.new({name: "test1", free_or_reduced_price_lunch: 0.5,
       children_in_poverty: 0.25,
       high_school_graduation: 0.75})
-    @r2 = ResultEntry.new({name:"test2", free_and_reduced_price_lunch: 0.3,
+    @r2 = ResultEntry.new({name:"test2", free_or_reduced_price_lunch: 0.3,
       children_in_poverty: 0.2,
       high_school_graduation: 0.6})
 
@@ -26,7 +26,8 @@ class ResultSetTest < Minitest::Test
   end
 
   def test_can_we_access_the_values
-    assert_equal 0.5, @rs.matching_districts.first.free_and_reduced_price_lunch_rate
+
+    assert_equal 0.5, @rs.matching_districts.first.free_or_reduced_price_lunch_rate
     assert_equal 0.25, @rs.matching_districts.first.children_in_poverty_rate
     assert_equal 0.75, @rs.matching_districts.first.high_school_graduation_rate
   end

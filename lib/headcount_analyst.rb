@@ -5,7 +5,7 @@ require_relative '../lib/result_set'
 
 class HeadcountAnalyst
   include Truncate
-  attr_reader :result_entry, :result_set
+  attr_reader :result_entry, :result_set, :district_repo
 
   def initialize(district_repo)
     @district_repo = district_repo
@@ -53,14 +53,14 @@ class HeadcountAnalyst
     high_school == 0 ? 0 : shorten_float(kinder / high_school)
   end
 
-  def kindergarten_participation_correlates_with_high_school_graduation(districts_list)
+  def kindergarten_participation_correlates_with_high_school_graduation(districts_list, original_method=nil)
     districts_list = district_parse(districts_list)
     if districts_list[0] == "STATEWIDE"
       districts_eval = @district_repo.districts
     else
       districts_eval = district_map(districts_list)
     end
-    evaluate_districts(districts_eval)
+    evaluate_districts(districts_eval, original_method)
   end
 
   def district_map(districts_list)
@@ -69,9 +69,13 @@ class HeadcountAnalyst
     end
   end
 
-  def evaluate_districts(districts_eval)
+  def evaluate_districts(districts_eval, original_method)
     kinder_relates = districts_eval.map do |district|
-      kindergarten_participation_against_high_school_graduation(district.name).between?(0.6,1.5)
+      if original_method.nil?
+        kindergarten_participation_against_high_school_graduation(district.name).between?(0.6,1.5)
+      elsif original_method == "kindergarten_income"
+        kindergarten_participation_against_household_income(district.name).between?(0.6,1.5)
+      end
     end
     above_70_percent?(kinder_relates)
   end
@@ -113,14 +117,6 @@ class HeadcountAnalyst
     end
   end
 
-  # def attribute_sort(district,attribute,found,counter)
-  #   district.economic_profile.data[attribute].values.each do |val|
-  #     found.merge!(counter => val[:percentage])
-  #     counter += 1
-  #   end
-  #   found
-  # end
-
   def average_math(wrapped)
     wrapped.reduce(:+)/wrapped.count
   end
@@ -146,8 +142,99 @@ class HeadcountAnalyst
     end
   end
 
+  def generic_search(districts, attribute, criteria)
+    found = districts.select do |district|
+      wrapped = average_wrapper(district, attribute)
+       average_math(wrapped.values) > criteria
+    end
+  end
+
+  def find_search_level(attribute, district)
+    if attribute == :free_or_reduced_price_lunch
+      district.economic_profile.data[attribute].values.to_h
+    elsif
+      district.economic_profile.data.has_key?(attribute)
+      district.economic_profile.data[attribute].values
+    elsif district.enrollment.data.has_key?(attribute)
+      district.enrollment.data[attribute]
+    end
+  end
+
   def high_poverty_and_high_school_graduation
-    
+    statewide_average = find_entry("statewide_average")
+    average_lunch = statewide_average.free_or_reduced_price_lunch_rate
+    first_search = generic_search(@district_repo.districts, :free_or_reduced_price_lunch, average_lunch)
+    average_poverty = statewide_average.children_in_poverty_rate
+    second_search = generic_search(first_search, :children_in_poverty, average_poverty)
+    average_grad_rate = statewide_average.high_school_graduation_rate
+    final_search = generic_search(second_search, :high_school_graduation, average_grad_rate)
+    create_district_entries(final_search)
+  end
+
+  def create_district_entries(districts)
+    districts.each do |district|
+      lunch = calculate_average_lunch(district)
+      poverty = calculate_average_poverty(district)
+      grad = calculate_average_grad(district)
+      income = calculate_average_income(district)
+      generate_matching_district(district.name,lunch,poverty,grad,income)
+    end
+  end
+
+  def generate_matching_district(name,lunch,poverty,grad,income)
+    data = {
+      name: name,
+      free_or_reduced_price_lunch: lunch,
+      high_school_graduation: grad,
+      children_in_poverty: poverty,
+      median_household_income: income
+    }
+    create_matches(data)
+  end
+
+  def create_matches(data)
+    result_set.add_matching_districts(ResultEntry.new(data))
+  end
+
+  def calculate_average_lunch(district)
+      wrapped = average_wrapper(district, :free_or_reduced_price_lunch)
+      lunch_average = average_math(wrapped.values)
+  end
+
+  def calculate_average_poverty(district)
+    wrapped = average_wrapper(district, :children_in_poverty)
+    poverty_average = average_math(wrapped.values)
+  end
+
+  def calculate_average_grad(district)
+    wrapped = average_wrapper(district, :high_school_graduation)
+    grad_average = average_math(wrapped.values)
+  end
+
+  def calculate_average_income(district)
+    wrapped = average_wrapper(district, :median_household_income)
+    income_average = average_math(wrapped.values)
+  end
+
+  def income_disparity
+    statewide_average = find_entry("statewide_average")
+    average_poverty = statewide_average.children_in_poverty_rate
+    first_search = generic_search(@district_repo.districts, :children_in_poverty, average_poverty)
+    average_income = statewide_average.median_household_income
+    final_search = generic_search(first_search, :median_household_income, average_income)
+    create_district_entries(final_search)
+  end
+
+  def kindergarten_participation_against_household_income(district_name)
+    kindergarten_variation = kindergarten_participation_rate_variation(district_name, against: 'COLORADO')
+    economic_profile = district_repo.find_by_name(district_name).economic_profile
+    economic_average = economic_profile.median_household_income_average
+    economic_variation = economic_average/49705
+    economic_variation == 0 ? 0 : shorten_float(kindergarten_variation/economic_variation)
+  end
+
+  def kindergarten_participation_correlates_with_household_income(districts_list)
+    kindergarten_participation_correlates_with_high_school_graduation(districts_list, "kindergarten_income")
   end
 
 end

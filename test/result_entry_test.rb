@@ -6,10 +6,10 @@ require "pry"
 class ResultEntryTest < Minitest::Test
 
   def setup
-    @r1 = ResultEntry.new({name: "test1", free_and_reduced_price_lunch: 0.5,
+    @r1 = ResultEntry.new({name: "test1", free_or_reduced_price_lunch: 0.5,
       children_in_poverty: 0.25,
       high_school_graduation: 0.75})
-    @r2 = ResultEntry.new({name:"test2",free_and_reduced_price_lunch: 0.3,
+    @r2 = ResultEntry.new({name:"test2",free_or_reduced_price_lunch: 0.3,
       children_in_poverty: 0.2,
       high_school_graduation: 0.6})
     @r3 = ResultEntry.new({name:"test3"})
@@ -20,17 +20,17 @@ class ResultEntryTest < Minitest::Test
   end
 
   def test_entry
-    @r3.add_to_entry({free_and_reduced_price_lunch: 0.3,
+    @r3.add_to_entry({free_or_reduced_price_lunch: 0.3,
       children_in_poverty: 0.2,
       high_school_graduation: 0.6})
-    expected = {name: "test3",free_and_reduced_price_lunch: 0.3,
+    expected = {name: "test3",free_or_reduced_price_lunch: 0.3,
       children_in_poverty: 0.2,
       high_school_graduation: 0.6}
       assert_equal expected, @r3.entry
   end
 
-  def test_can_it_find_free_and_reduced_lunch_rate
-    assert_equal 0.5, @r1.free_and_reduced_price_lunch_rate
+  def test_can_it_find_free_or_reduced_lunch_rate
+    assert_equal 0.5, @r1.free_or_reduced_price_lunch_rate
   end
 
   def test_can_it_find_children_in_poverty_rate
